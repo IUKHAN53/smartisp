@@ -1,0 +1,32 @@
+@extends('layouts.template')
+
+@section('content')
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Add Server</h4>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{route('createserver')}}" method="POST" class="mt-4">
+                    @csrf
+                    <div class="form-group">
+                        <span style="color: red;">*</span><label >Name</label>
+                        <input type="text" class="form-control required" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <span style="color: red;">*</span><label>IP Address</label>
+                        <input type="text" class="form-control required" name="ip" placeholder="XX:XX:XX:XX">
+                    </div>
+                    <input type="submit" class="btn btn-outline-info " value="Add Server"/>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

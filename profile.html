@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="img/favicon.png" sizes="36x36" type="image/png">
+    <!--    Font Awesome 5.9-->
+    <script src="https://kit.fontawesome.com/9c7309bfe2.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css">
+    <!--    Bootstrap 4.3.1-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Parts Buzz Profile</title>
+</head>
+
+<body>
+    <header class="header">
+        <!-- Top -->
+        <div class="top-header-top">
+            <div class="container">
+                <div class="header_container">
+                    <div class="leftbar">
+                        <div class="logo">
+                            <img src="img/partbuzz-logo.png" alt="">
+                        </div>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-default"> <i class="fal fa-globe"></i> <i class="fas fa-caret-down"></i></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="centerbar">
+                        <div class="searchbar">
+                            <div class="input-group">
+                                <div class="input-group-btn dropdown">
+                                    <button type="button" class="btn btn-default ">All Category <i class="fas fa-caret-down"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /btn-group -->
+                                <input type="text" class="form-control" aria-label="..." placeholder="Search in partsbuzz">
+                                <span class="input-group-btn">
+                              <button class="btn btn-default searchbtn" type="button">
+                                  <span class="fa fa-search" aria-hidden="true">
+                                      
+                                  </span>
+                                </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightbar">
+                        <ul>
+                            <li>
+                                <div class="input-group-btn dropdown">
+                                    <button type="button" class="btn btn-default ">Welcome <b>John Doe</b> <i class="fas fa-caret-down"></i></button>
+                                    <ul class="dropdown-menu user_dropdown">
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-user"></i></span> Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-box-open"></i></span> My Products</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-clipboard-list-check"></i></span> Order</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-heart"></i></span> Wishlist</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-shopping-cart"></i></span> Cart</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-envelope"></i></span> Messages</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <span><i class="far fa-power-off"></i></span> Log Out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+
+                                <a href="#" class="sell_btn">
+                                    Sell
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top End -->
+    </header>
+    <div class="profile_bg">
+        <div class="container">
+            <div class="profile_topbar">
+                <h6>Profile</h6>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="signuptext profile_content">
+            <h4>My Profile</h4>
+
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div class="bg_gray">
+                        <div class="leftuserprofile">
+                            <div class="d_flex">
+                                <div class="userimg">
+                                    <img src="img/userprofile.jpg" alt="">
+                                    <span class="status statusactive"></span>
+                                </div>
+                                <div class="usercontent">
+                                    <h5>James Bond</h5>
+                                    <h6>Product Manager</h6>
+                                    <button type="button" class="btn btn_active">Active</button>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <span class="lebal">Email:</span>
+                                <span>jamesbond@gmail.com</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="lebal">Phone:</span>
+                                <span>123456789</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="lebal">Location:</span>
+                                <span>Sydney</span>
+                            </div>
+
+
+                        </div>
+                        <ul class="nav nav-tabs tabs-left sideways">
+                            <li class=""><a href="#profile-v" class="active" data-toggle="tab">Profile Settings</a></li>
+                            <li><a href="#account-v" data-toggle="tab">Account Settings</a></li>
+                            <li><a href="#change-v" data-toggle="tab">Change Password</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="profile-v">
+                            <div class="personal_info_wrap">
+                                <div class="header">
+                                    <div class="heading">
+                                        <h5>Personal Information</h5>
+                                        <p>Update your personal information</p>
+                                    </div>
+                                    <div class="btns">
+                                        <button type="button" class="btn btn_edit">Edit</button>
+                                        <button type="button" class="btn btn_cancel">Cancel</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p>Avatar</p>
+                                <div class="avatarbox">
+                                    <div class="avatar_img">
+                                        <img src="img/userprofile.jpg" alt="">
+                                        <a href="#" class="editicon"><i class="fas fa-pen"></i></a>
+                                        <a href="#" class="cancelicon"><i class="far fa-times"></i></a>
+                                    </div>
+                                    <div class="avatar_tex">
+                                        <p>Allowed file types: png, jpg, jpeg.</p>
+                                    </div>
+                                </div>
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div class="form-group">
+                                                <label for="">First Name</label>
+                                                <input type="text" class="form-control" placeholder="James" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Last Name</label>
+                                                <input type="text" class="form-control" placeholder="Bond" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Company Name</label>
+                                                <input type="text" class="form-control" placeholder="Stack Inc" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="contactinfo_heading">Contact Information</h5>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div class="form-group">
+                                                <label for="">Contact Phone</label>
+                                                <div class="input_container">
+                                                    <i class="fas fa-phone-alt"></i>
+                                                    <input type="text" class="form-control" placeholder="1234567890" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Email Address</label>
+                                                <div class="input_container">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <input type="text" class="form-control" placeholder="jamesbond@gmail.com" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Company Site</label>
+                                                <div class="input_container">
+                                                    <input type="text" class="form-control" placeholder="Stack" readonly>
+                                                    <span>.com</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="account-v">
+                            <div class="account_setting_div">
+                                <h3>Account Settings</h3>
+                                <div class="notification_box">
+                                    <h5>Notifications settings</h5>
+                                    <div class="account_setting_box">
+                                        <div class="headingdiv">
+
+                                            <p>Text me about Quote order review related notifications</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                          </label>
+                                    </div>
+                                    <div class="account_setting_box">
+                                        <div class="headingdiv">
+                                            <p>Email me about Quote order review related notifications
+                                            </p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                          </label>
+                                    </div>
+                                </div>
+
+
+                                <div class="account_setting_box">
+                                    <div class="headingdiv">
+                                        <h5>Other General Preferences</h5>
+                                        <p>Keep me signed in on this computer
+                                        </p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                                <div class="account_setting_box">
+                                    <div class="headingdiv">
+                                        <h5>Reviews Settings
+                                        </h5>
+                                        <p>Hide reviews on all products
+                                        </p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                                <div class="notification_box">
+                                    <h5>Auto Reply
+                                    </h5>
+                                    <div class="account_setting_box">
+                                        <div class="headingdiv">
+
+                                            <p>Auto-reply when receiving a message
+                                            </p>
+                                        </div>
+                                        <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                    </div>
+                                    <div class="textfiled">
+                                        <div class="autoreplyinput">
+                                            <textarea name="" id="" rows="2"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn_save">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="change-v">
+                            <div class="signuptext m-0">
+                                <h5 class="contactinfo_heading m-0">Change Password</h5>
+
+
+                                <div class="row mt-4">
+                                    <div class="col-lg-12">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="">Old Password</label>
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">New Password</label>
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Confirm Password</label>
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn_signup">Change Password</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fmop_section">
+        <div class="container">
+            <div class="fmop_container">
+                <div class="f_box">
+                    <div class="iconbox bg_red">
+                        <img src="img/shipping-icon.png" alt="">
+                    </div>
+                    <div class="f_text">
+                        <h6>Free Shiping</h6>
+                        <span>on orders over $50</span>
+                    </div>
+                </div>
+                <div class="f_box">
+                    <div class="iconbox bg_green">
+                        <img src="img/money-grantee.png" alt="">
+                    </div>
+                    <div class="f_text">
+                        <h6>Money Guarantee</h6>
+                        <span>30 days money back</span>
+                    </div>
+                </div>
+                <div class="f_box">
+                    <div class="iconbox bg_blue">
+                        <img src="img/online-sport.png" alt="">
+                    </div>
+                    <div class="f_text">
+                        <h6>Online Support</h6>
+                        <span>24/7 customer support</span>
+                    </div>
+                </div>
+                <div class="f_box">
+                    <div class="iconbox bg_orrange">
+                        <img src="img/payment-method.png" alt="">
+                    </div>
+                    <div class="f_text">
+                        <h6>Payment Method</h6>
+                        <span>24/24 on day</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="topfooter py-5">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="about_sec">
+                            <h5>About Us</h5>
+                            <p>Nullam ultrices iaculis metus dapib efficitur. Etiam non turpis pulvinar, malesuada ipsum sit erat. Fusce accumsan iaculis efficitur. Sed molestie felis ut orci blandit scelerisque. Fusce volutpat dolor in diam cond porttitor.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Information</h5>
+                                <ul class="nav_list">
+                                    <li>
+                                        <a href="#">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Delivery Information</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Why Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Brands & Agencies</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">How It Works</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Returns</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>My Account</h5>
+                                <ul class="nav_list">
+                                    <li>
+                                        <a href="#">My Account</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Order History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Wish List</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Affiliates</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">FAQs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Order History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Feedback</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Extra</h5>
+                                <ul class="nav_list">
+                                    <li>
+                                        <a href="#">Specials</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Brands</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Gift Certificates</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Newsletter</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Coupons</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Press Release</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Contact Info</h5>
+                                <ul class="nav_list">
+                                    <li>
+                                        Office Address: 727 Highland Drive Readfield, WI 54969
+                                    </li>
+                                    <li>
+                                        Email: info@ipartsbuzz.com
+                                    </li>
+                                    <li>
+                                        Phone: 920-667-5615
+                                    </li>
+                                    <li>
+                                        Fax: 952-586-0101
+                                    </li>
+                                    <li>
+                                        Timing: Mon - Fri
+                                    </li>
+                                    <li>
+                                        9:00 AM to 5: 00 PM
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="inner_div">
+                            <h6>Payment Methods</h6>
+                            <div class="icons">
+                                <a href="#"><img src="img/pm-icon1.png" alt=""></a>
+                                <a href="#"> <img src="img/pm-icon2.png" alt=""></a>
+                                <a href="#"><img src="img/pm-icon3.png" alt=""></a>
+                                <a href="#"> <img src="img/pm-icon4.png" alt=""></a>
+                                <a href="#"><img src="img/pm-icon5.png" alt=""></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="inner_div">
+                            <h6>Follow Us on</h6>
+                            <div class="social_icons">
+                                <a href="#"> <i class="fab fa-facebook-square"></i></a>
+                                <a href="#"> <i class="fab fa-twitter-square"></i></a>
+                                <a href="#"> <i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-vimeo-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="inner_div">
+                            <h6>Download App from</h6>
+                            <div class="icons">
+                                <a href="#">
+                                    <img src="img/Google Play.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="img/App Store.png" alt="">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="copyright_text">
+                    <p>© Copyright 2019. <a href="#">Partsbuzz</a>, Inc. All Rights Reserved</p>
+                    <ul>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        |
+                        <li>
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                        |
+                        <li>
+                            <a href="#">Cookies</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- banner section___end -->
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Show hide popover
+            $(".dropdown").click(function() {
+                $(this).find(".dropdown-menu").slideToggle("fast");
+            });
+        });
+        $(document).on("click", function(event) {
+            var $trigger = $(".dropdown");
+            if ($trigger !== event.target && !$trigger.has(event.target).length) {
+                $(".dropdown-menu").slideUp("fast");
+            }
+        });
+    </script>
+</body>
+
+</html>
