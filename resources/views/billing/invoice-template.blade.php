@@ -221,8 +221,8 @@
                         <div class="pull-right text-right">
                             <address>
                                 <h3>To,</h3>
-                                <h4 class="text-muted m-l-30">Client ID: {{$user->reference_no}},</h4>
                                 <h4 class="font-bold">{{$user->full_name}},</h4>
+                                <h4 class="text-muted m-l-30">Client ID: {{$user->reference_no}},</h4>
                                 <p class="text-muted m-l-30">{{$user->pres_addr}}</p>
                                 <p class="text-muted m-l-30">Phone: {{$user->mobile_no}}</p>
                                 <p class="text-muted m-l-30">Billing Cycle: {{$user->billing->billing_cycle}}</p>
