@@ -15,28 +15,31 @@
                         </ul>
                     </div>
                 @endif
-{{--                <form action="#" method="POST" class="mt-4">--}}
-{{--                    @method('PATCH')--}}
-{{--                    @csrf--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="exampleInputEmail1">Host name</label>--}}
-{{--                        <input type="text" class="form-control" id="exampleInputEmail1" value="" name="host" placeholder="Enter Host Address">--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="exampleInputPassword1">Username</label>--}}
-{{--                        <input type="text" class="form-control" name="username"  value="" id="exampleInputEmail1" placeholder="Username">--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="exampleInputPassword1">Password</label>--}}
-{{--                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="exampleInputEmail1">Port</label>--}}
-{{--                        <input type="text" class="form-control" id="exampleInputEmail1"  value="" name="port" aria-describedby="emailHelp" placeholder="Enter port">--}}
-{{--                    </div>--}}
-{{--                    <input type="submit" class="btn btn-primary" value="Update"/>--}}
-{{--                </form>--}}
-                <h1>In Progress</h1>
+                <form action="{{url('billing/edit/').'/'.$user->reference_no}}" method="POST" class="mt-4">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Customer Number : Full name</label>
+                        <input type="text" id="name" class="form-control"
+                               value="{{$user->reference_no}} : {{$user->full_name}}"
+                               disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="bill">Monthly Bill : Due Date</label>
+                        <input type="text" class="form-control" id="bill"
+                               value="{{$user->billing->monthly_bill}} : {{$bill->due_date}}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="disc">Discount</label>
+                        <input type="text" class="form-control" id="disc" name="discount"
+                               value="{{$user->billing->perm_discount}}" placeholder="Enter Discount">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea class="form-control" name="notes" id="notes"
+                                  placeholder="What is discount for! ">{{$user->billing->discount_notes}}</textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
             </div>
         </div>
     </div>

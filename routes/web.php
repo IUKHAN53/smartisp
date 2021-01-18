@@ -68,6 +68,7 @@ Route::get('/getpurchase','PurchaseOrderController@getpurchase');
 Route::get('/billing','BillingController@index');
 Route::get('/billing/pay/{id}','BillingController@payBill');
 Route::get('/billing/edit/{id}','BillingController@edit');
+Route::Post('/billing/edit/{id}','BillingController@update');
 Route::Post('billing/receivePayment','BillingController@receiveBill');
 Route::get('/invoice/{id}/{type}','BillingController@invoice');
 Route::get('/getbillings','BillingController@getBillings');

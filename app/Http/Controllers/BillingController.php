@@ -13,6 +13,7 @@ use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Facades\Invoice;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Editor\Fields\Number;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class BillingController extends Controller
 {
@@ -188,7 +189,19 @@ class BillingController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'discount' => 'required|numeric|gt:0',
+            'notes' => 'required'
+        ]);
+        $user = Customer::find($id)->firstOrFail();
+        $bill = $user->billing;
+        $bill->perm_discount = $data['discount'];
+        $bill->discount_notes = $data['notes'];
+        if($bill->save())
+            Toastr::SUCCESS('Discount Added Succesfully','Success');
+        else
+            Toastr::ERROR('Could not Update data','Failed');
+        return redirect(url('/billing'));
     }
 
     public function destroy($id)
