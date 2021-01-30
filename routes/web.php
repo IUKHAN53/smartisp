@@ -75,6 +75,14 @@ Route::get('/getbillings','BillingController@getBillings');
 Route::post('/changeDate','BillingController@changeDueDate');
 Route::get('/getcustomers','CustomerController@getCustomers');
 
+//CRM
+Route::resource('ticket', 'TicketController');
+Route::get('/ticket-category', 'TicketController@category')->name('ticket-category');
+Route::get('/ticket-category/create', 'TicketController@category_create')->name('ticket-category.create');
+Route::post('/ticket-category/store', 'TicketController@category_store')->name('ticket-category.store');
+
+
+
 Route::get('/run-migrations',function (){
     Artisan::call('migrate --seed', array('--path' => 'app/migrations'));
 });

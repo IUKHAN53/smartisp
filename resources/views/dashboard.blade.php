@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4>Please Choose Active Mikrotik</h4><br>
-                    <h4>or add a <a href="/mikrotik/create">new mikrotik</a></h4>
+                    <h4>or add a <a href="{{route('mikrotik.create')}}">new mikrotik</a></h4>
                 </div>
             </div>
         @else

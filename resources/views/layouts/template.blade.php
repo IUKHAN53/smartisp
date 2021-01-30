@@ -123,9 +123,17 @@
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                               aria-expanded="false"><i class="ti ti-user"></i><span class="hide-menu">Billing</span></a>
+                               aria-expanded="false"><i class="ti ti-money"></i><span class="hide-menu">Billing</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('/billing')}}">View Billings</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                               aria-expanded="false"><i class="fas fa-ticket-alt"></i><span class="hide-menu">CRM</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{url('/ticket')}}">Ticket List</a></li>
+                                <li><a href="{{url('/ticket-category')}}">Type List</a></li>
                             </ul>
                         </li>
                         <li>

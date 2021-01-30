@@ -27,6 +27,10 @@ class DatabaseSeeder extends Seeder
             CustomerTypeSeeder::class,
             ZoneSeeder::class,
             PackageSeeder::class,
+            TicketCategorySeeder::class,
+            FranchiseSeeder::class,
+            TicketSeeder::class,
+            TicketLogSeeder::class,
         ]);
     }
 }

@@ -21,7 +21,7 @@
     <div class="card-body">
         <h4 class="card-title">All Mikrotik</h4>
         <div class="float-right">
-        <a class="btn btn-outline-info" href="mikrotik/create" role="button" title="" data-toggle="tooltip" data-original-title="Add"><i class="ti-plus"></i>Add new MikroTik</a>
+        <a class="btn btn-outline-info" href="{{route('mikrotik.create')}}" role="button" title="" data-toggle="tooltip" data-original-title="Add"><i class="ti-plus"></i>Add new MikroTik</a>
         </div>
             <div class="table-responsive">
             <table class="table color-bordered-table dark-bordered-table">
