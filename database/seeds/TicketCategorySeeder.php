@@ -15,6 +15,6 @@ class TicketCategorySeeder extends Seeder
         TicketCategory::create(["id" => "1", "name" => "category1"]);
         TicketCategory::create(["id" => "2", "name" => "category2"]);
         TicketCategory::create(["id" => "3", "name" => "category3"]);
-        TicketCategory::create(["id" => "4", "name" => "category4"]);
+        TicketCategory::create(["id" => "4", "name" => "New Connection Request"]);
     }
 }

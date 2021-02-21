@@ -16,7 +16,7 @@ class TicketController extends Controller
     {
         $data = Ticket::with('assigned_to')->with('ticket_by')->with('ticket_category');
         if(isset($request->type)){
-            $cat = TicketCategory::whereName('New Connection Request')->first()->id;
+            $cat = TicketCategory::whereName('s')->first()->id;
             $data = $data->where('ticket_category_id',$cat);
         }
         $data = $data->get();
