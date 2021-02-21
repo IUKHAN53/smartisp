@@ -4,19 +4,26 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-10 margin-tb">
+                <div class="col-lg-7 margin-tb">
                     <div class="pull-left">
                         <h2>Ticket Management</h2>
                     </div>
-                    <div class="pull-right">
-                        <a class="btn btn-success" href="{{ route('ticket.create') }}"> Add New Ticket</a>
-                    </div>
-                    <div class="pull-right">
-                    </div>
                 </div>
-                <div class="col-lg-2 margin-tb">
-                    <a class="btn btn-success" href="{{ route('ticket.index',['type'=>'new-connection']) }}"> New
-                        Connection requests</a>
+                <div class="btn-toolbar col-lg-5" role="toolbar" aria-label="Basic example">
+                    <button class="btn btn-outline-primary mr-1" onclick="location.href = '{{ route('ticket.index') }}'">All</button>
+                    <button class="btn btn-outline-danger mr-1"
+                            onclick="location.href = '{{ route('ticket.index',['type'=>'pending']) }}'">Pending
+                    </button>
+                    <button class="btn btn-outline-success mr-1"
+                            onclick="location.href = '{{ route('ticket.index',['type'=>'closed']) }}'">Closed
+                    </button>
+                    <button class="btn btn-outline-info mr-1"
+                            onclick="location.href = '{{ route('ticket.index',['type'=>'new-connection']) }}'">New
+                        Connections
+                    </button>
+                    <button class="btn btn-outline-success mr-1" onclick="location.href = '{{ route('ticket.create') }}'"><i
+                            class="fas fa-plus"></i> Add New Ticket
+                    </button>
                 </div>
             </div>
 
@@ -38,7 +45,7 @@
                         <td>Ticket-{{$ticket->id}}</td>
                         <td>{{$ticket->ticket_category->name}}</td>
                         <td>
-                            <button href="#" class="btn btn-outline-info">{{$ticket->status}}</button>
+                            <button class="btn btn-outline-info" style="cursor: default">{{$ticket->status}}</button>
                         </td>
                         <td>{{$ticket->ticket_by->name}}<span class="text-info">({{\App\Ticket::where('ticket_by_id',$ticket->ticket_by->id)->count()}})</span>
                         </td>
@@ -66,15 +73,15 @@
         function deleteTicket(id) {
             if (confirm('Are you sure to delete this ticket?')) {
                 url = '{{url('ticket').'/ticket_id'}}';
-                url = url.replace('ticket_id',id);
+                url = url.replace('ticket_id', id);
                 $.ajax({
                     url: url,
                     type: 'DELETE',
-                    success: function (){
+                    success: function () {
                         toastr.success('Deleted Ticket Successfully');
                         location.reload();
                     },
-                    error: function (){
+                    error: function () {
                         toastr.error('Failed to delete Ticket');
                     }
                 })

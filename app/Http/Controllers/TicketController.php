@@ -17,10 +17,16 @@ class TicketController extends Controller
         $data = Ticket::with('assigned_to')->with('ticket_by')->with('ticket_category');
         if (isset($request->type)) {
             if ($request->type == 'new-connection') {
-                $cat = TicketCategory::whereName('New Connection Request')->first()->id;
+                $cat = TicketCategory::whereName('New Connection Request')->first();
                 if (!$cat)
                     toastr()->info("No Such category present please create a category named New Connection Request");
-                $data = $data->where('ticket_category_id', $cat);
+                $data = $data->where('ticket_category_id', $cat->id);
+            }
+            else if($request->type == 'pending'){
+                $data = $data->where('status', $request->type);
+            }
+            else if($request->type == 'closed'){
+                $data = $data->where('status', $request->type);
             }
         }
         $data = $data->get();
@@ -123,10 +129,11 @@ class TicketController extends Controller
             'title' => 'required|string',
             'priority' => 'required',
             'content' => 'required|string',
-            'assign_to' => 'required'
+            'assign_to' => 'required',
+            'status' => 'required|string',
         ]);
         $ticket->update($request);
-        toastr()->success('Added Ticket Successfully', 'Success');
+        toastr()->success('Updated Ticket Successfully', 'Success');
         return redirect(route('ticket.index'));
     }
 

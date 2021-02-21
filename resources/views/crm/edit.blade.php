@@ -87,7 +87,19 @@
                         @error('assign_to')
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
+                    <div class="form-group">
+                        <label for="status">Set Status</label>
+                        <select class="custom-select form-control " id="status"
+                                name="status">
+                            <option value="">Status</option>
+                            <option value="closed" {{($ticket->status == 'closed')?'selected':''}}>Closed</option>
+                            <option value="pending" {{($ticket->status == 'pending')?'selected':''}}>Pending</option>
+                            <option value="in-progress" {{($ticket->status == 'in-progress')?'selected':''}}>In-Progress</option>
+                        </select>
+                        @error('status')
+                        <div class="text-danger">{{$message}}</div>@enderror
 
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Update Ticket"/>
                 </form>
             </div>

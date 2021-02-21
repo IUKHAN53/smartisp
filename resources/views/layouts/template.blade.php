@@ -136,6 +136,14 @@
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                               aria-expanded="false"><i class="fas fa-ticket-alt"></i><span class="hide-menu">HRM</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{url('/ticket')}}">Ticket List</a></li>
+                                <li><a href="{{url('/ticket-category')}}">Type List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                aria-expanded="false"><i class="fas fa-sitemap"></i><span
                                     class="hide-menu">Network</span></a>
                             <ul aria-expanded="false" class="collapse">
