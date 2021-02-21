@@ -80,7 +80,7 @@ Route::resource('ticket', 'TicketController');
 Route::get('/ticket-category', 'TicketController@category')->name('ticket-category');
 Route::get('/ticket-category/create', 'TicketController@category_create')->name('ticket-category.create');
 Route::post('/ticket-category/store', 'TicketController@category_store')->name('ticket-category.store');
-
+Route::delete('/ticket-category/{ticketCategory}', 'TicketController@category_destroy')->name('ticket-category.delete');
 
 
 Route::get('/run-migrations',function (){

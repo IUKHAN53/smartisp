@@ -53,6 +53,20 @@ class TicketController extends Controller
 
     }
 
+    public function category_destroy(TicketCategory $ticketCategory)
+    {
+        try{
+            $ticketCategory->delete();
+        }catch (\Exception $e){
+            ob_clean();
+            return response()->json([
+                'status'=>'failed',
+                'message'=>'Unable to delete category: Please remove related tickets first',
+            ]);
+        }
+        ob_clean();
+    }
+
     public function category_store(Request $request)
     {
         $request->validate(['title' => 'required|string']);

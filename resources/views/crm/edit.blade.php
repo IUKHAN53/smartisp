@@ -45,22 +45,25 @@
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
                     <div class="form-group">
-                        <label for="title">Title</label><input type="text" class="form-control" id="title" name="title"
-                                                               placeholder="Enter Title" value="{{$ticket->title}}">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title"
+                               placeholder="Enter Title" value="{{$ticket->title}}">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
                     <div class="form-group">
-                        <label for="content">Content</label><input type="text" class="form-control" id="content"
-                                                                   name="content"
-                                                                   placeholder="Enter Content"
-                                                                   value="{{$ticket->content}}">
+                        <label for="content">Content</label>
+                        <input type="text" class="form-control" id="content"
+                               name="content"
+                               placeholder="Enter Content"
+                               value="{{$ticket->content}}">
                         @error('content')
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
                     <div class="form-group">
-                        <label for="priority">Priority</label><select class="custom-select form-control " id="priority"
-                                                                      name="priority">
+                        <label for="priority">Priority</label>
+                        <select class="custom-select form-control " id="priority"
+                                name="priority">
                             <option value="">Priority</option>
                             <option value="low" {{($ticket->priority == 'low')?'selected':''}}>Low</option>
                             <option value="medium" {{($ticket->priority == 'medium')?'selected':''}}>Medium</option>
@@ -71,9 +74,10 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="assign_to">Assigned To:</label><select class="custom-select form-control "
-                                                                           id="assign_to"
-                                                                           name="assign_to">
+                        <label for="assign_to">Assigned To:</label>
+                        <select class="custom-select form-control "
+                                id="assign_to"
+                                name="assign_to">
                             <option value="">Assign Ticket To</option>
                             @foreach($users as $user)
                                 <option
@@ -84,7 +88,7 @@
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
 
-                    <input type="submit" class="btn btn-primary" value="Add"/>
+                    <input type="submit" class="btn btn-primary" value="Update Ticket"/>
                 </form>
             </div>
 

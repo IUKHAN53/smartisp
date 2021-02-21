@@ -13,22 +13,56 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="my_table">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Category Name</th>
                     <th>Created At</th>
                     <th width="280px">Action</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach ($data as $category)
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
                         <td>{{$category->created_at}}</td>
-                        <td><button href="#" class="btn btn-outline-danger"><i class="ti ti-trash"></i></button></td>
+                        <td>
+                            <button onclick="deleteCategory({{$category->id}})" class="btn btn-outline-danger"><i
+                                    class="ti ti-trash"></i></button>
+                        </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        function deleteCategory(id) {
+            if (confirm('Are you sure to delete this ticket?')) {
+                url = '{{url('ticket-category').'/category_id'}}';
+                url = url.replace('category_id', id);
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function (data) {
+                        if (data.status == 'failed') {
+                            toastr.error(data.message);
+                        } else {
+                            toastr.success('Category Deleted Successfully');
+                            location.reload();
+                        }
+                    },
+                    error: function () {
+                        toastr.error('Failed to delete ticket');
+                    }
+                })
+            }
+        }
+    </script>
+@endpush
