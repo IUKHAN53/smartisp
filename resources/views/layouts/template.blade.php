@@ -14,7 +14,7 @@
     <link href="{{asset('assets/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
     <link href="{{asset('assets/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
     <link href="{{asset('assets/dist/css/style.min.css')}}" rel="stylesheet">
-
+    <link href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{asset('assets/dist/css/pages/dashboard1.css')}}" rel="stylesheet">
     <link href="{{asset('assets/node_modules/switchery/dist/switchery.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('assets/node_modules/dropify/dist/css/dropify.min.css')}}">
@@ -25,9 +25,7 @@
     <script src="{{asset('assets/node_modules/jquery/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('assets/node_modules/jqueryui/jquery-ui.js')}}"></script>
     <script src="{{asset('assets/node_modules/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @toastr_css
 </head>
@@ -461,8 +459,9 @@
 
 <script src="{{asset('assets/node_modules/dropify/dist/js/dropify.min.js')}}"></script>
 <script>
-
     $(document).ready(function () {
+        $('#my_table').DataTable();
+
         var noofanchors = document.getElementById("mktdropdown").getElementsByTagName("a");
         for (var i = 0; i < noofanchors.length; i++) {
             $("#target" + i).click(function () {

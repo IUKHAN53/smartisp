@@ -12,9 +12,14 @@ use Illuminate\Http\Request;
 class TicketController extends Controller
 {
 
-    public function index()
+    public function index( Request $request)
     {
-        $data = Ticket::with('assigned_to')->with('ticket_by')->with('ticket_category')->get();
+        $data = Ticket::with('assigned_to')->with('ticket_by')->with('ticket_category');
+        if(isset($request->type)){
+            $cat = TicketCategory::whereName('New Connection Request')->first()->id;
+            $data = $data->where('ticket_category_id',$cat);
+        }
+        $data = $data->get();
         foreach ($data as $ticket) {
             $ticket->log = TicketLog::where('belong_id', $ticket->id)->get();
         }

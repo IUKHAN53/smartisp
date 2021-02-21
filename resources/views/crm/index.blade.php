@@ -11,9 +11,13 @@
                     <div class="pull-right">
                         <a class="btn btn-success" href="{{ route('ticket.create') }}"> Add New Ticket</a>
                     </div>
+                    <div class="pull-right">
+                        <a class="btn btn-success" href="{{ route('ticket.create',['type'=>'New Connections']) }}"> New Connection requests</a>
+                    </div>
                 </div>
             </div>
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="my_table">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Ticket Category</th>
@@ -23,22 +27,35 @@
                     <th>Log Detail</th>
                     <th width="280px">Action</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach ($data as $ticket)
                     <tr>
                         <td>Ticket-{{$ticket->id}}</td>
                         <td>{{$ticket->ticket_category->name}}</td>
-                        <td><button href="#" class="btn btn-outline-info">{{$ticket->status}}</button></td>
-                        <td>{{$ticket->ticket_by->name}}<span class="text-info">({{\App\Ticket::where('ticket_by_id',$ticket->ticket_by->id)->count()}})</span></td>
+                        <td>
+                            <button href="#" class="btn btn-outline-info">{{$ticket->status}}</button>
+                        </td>
+                        <td>{{$ticket->ticket_by->name}}<span class="text-info">({{\App\Ticket::where('ticket_by_id',$ticket->ticket_by->id)->count()}})</span>
+                        </td>
                         <td>{{$ticket->assigned_to->name}}</td>
                         <td>
                             @foreach($ticket->log as $log)
                                 {{$log->message}}<br>
                             @endforeach
                         </td>
-                        <td><button href="#" class="btn btn-outline-danger"><i class="ti ti-trash"></i></button></td>
+                        <td>
+                            <button href="#" class="btn btn-outline-danger"><i class="ti ti-trash"></i></button>
+                        </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+
+    </script>
+@endpush
