@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-12 margin-tb">
+                <div class="col-lg-10 margin-tb">
                     <div class="pull-left">
                         <h2>Ticket Management</h2>
                     </div>
@@ -12,10 +12,14 @@
                         <a class="btn btn-success" href="{{ route('ticket.create') }}"> Add New Ticket</a>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-success" href="{{ route('ticket.create',['type'=>'New Connections']) }}"> New Connection requests</a>
                     </div>
                 </div>
+                <div class="col-lg-2 margin-tb">
+                    <a class="btn btn-success" href="{{ route('ticket.index',['type'=>'new-connection']) }}"> New
+                        Connection requests</a>
+                </div>
             </div>
+
             <table class="table table-bordered" id="my_table">
                 <thead>
                 <tr>
@@ -45,7 +49,10 @@
                             @endforeach
                         </td>
                         <td>
-                            <button href="#" class="btn btn-outline-danger"><i class="ti ti-trash"></i></button>
+                            <button onclick="deleteTicket({{$ticket->id}})" class="btn btn-outline-danger"><i
+                                    class="ti ti-trash"></i></button>
+                            <button onclick="location.href = '{{route('ticket.edit',['ticket'=>$ticket->id])}}'"
+                                    class="btn btn-outline-info"><i class="ti ti-pencil"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -56,6 +63,22 @@
 @endsection
 @push('scripts')
     <script>
-
+        function deleteTicket(id) {
+            if (confirm('Are you sure to delete this ticket?')) {
+                url = '{{url('ticket').'/ticket_id'}}';
+                url = url.replace('ticket_id',id);
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function (){
+                        toastr.success('Deleted Ticket Successfully');
+                        location.reload();
+                    },
+                    error: function (){
+                        toastr.error('Failed to delete Ticket');
+                    }
+                })
+            }
+        }
     </script>
 @endpush

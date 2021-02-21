@@ -2,66 +2,92 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card">
+        <div class="card m-4">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Edit New User</h2>
-                    </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('user.index') }}"> Back</a>
+                        <h2>Edit Ticket</h2>
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <form action="{{route('ticket.store')}}" id="user_form" method="POST" class="mt-4">
+                    @csrf
+                    <div class="form-group">
+                        <label for="createdby">Ticket Created By:</label>
+                        <input type="text" class="form-control" id="createdby" name="content" readonly
+                               placeholder="Enter Content" value="{{$ticket->ticket_by->name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Ticket Category:</label><select class="custom-select form-control"
+                                                                              id="category"
+                                                                              name="category">
+                            <option value="">Ticket Category</option>
+                            @foreach($categories as $category)
+                                <option
+                                    value="{{$category->id}}" {{($category->id == $ticket->id)?'selected':''}}>{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('category')
+                        <div class="text-danger">{{$message}}</div>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="franchise">Franchise</label><select class="custom-select form-control "
+                                                                        id="franchise"
+                                                                        name="franchise">
+                            <option value="">Franchise</option>
+                            @foreach($franchises as $franchise)
+                                <option
+                                    value="{{$franchise->id}}" {{($franchise->id == $ticket->franchise_id)?'selected':''}}>{{$franchise->franchisename}}</option>
+                            @endforeach
+                        </select>
+                        @error('franchise')
+                        <div class="text-danger">{{$message}}</div>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title</label><input type="text" class="form-control" id="title" name="title"
+                                                               placeholder="Enter Title" value="{{$ticket->title}}">
+                        @error('title')
+                        <div class="text-danger">{{$message}}</div>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label><input type="text" class="form-control" id="content"
+                                                                   name="content"
+                                                                   placeholder="Enter Content"
+                                                                   value="{{$ticket->content}}">
+                        @error('content')
+                        <div class="text-danger">{{$message}}</div>@enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label><select class="custom-select form-control " id="priority"
+                                                                      name="priority">
+                            <option value="">Priority</option>
+                            <option value="low" {{($ticket->priority == 'low')?'selected':''}}>Low</option>
+                            <option value="medium" {{($ticket->priority == 'medium')?'selected':''}}>Medium</option>
+                            <option value="high" {{($ticket->priority == 'high')?'selected':''}}>High</option>
+                        </select>
+                        @error('priority')
+                        <div class="text-danger">{{$message}}</div>@enderror
 
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="assign_to">Assigned To:</label><select class="custom-select form-control "
+                                                                           id="assign_to"
+                                                                           name="assign_to">
+                            <option value="">Assign Ticket To</option>
+                            @foreach($users as $user)
+                                <option
+                                    value="{{$user->id}}" {{($user->id == $ticket->assigned_to_id)?'selected':''}}>{{$user->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('assign_to')
+                        <div class="text-danger">{{$message}}</div>@enderror
+                    </div>
 
-            {!! Form::model($user, ['method' => 'PATCH','route' => ['user.update', $user->id]]) !!}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Name:</strong>
-                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Email:</strong>
-                        {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Password:</strong>
-                        {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Confirm Password:</strong>
-                        {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Role:</strong>
-                        {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                    <input type="submit" class="btn btn-primary" value="Add"/>
+                </form>
             </div>
-            {!! Form::close() !!}
+
         </div>
     </div>
 @endsection

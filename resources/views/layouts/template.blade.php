@@ -460,17 +460,19 @@
 <script src="{{asset('assets/node_modules/dropify/dist/js/dropify.min.js')}}"></script>
 <script>
     $(document).ready(function () {
-        $('#my_table').DataTable();
 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            }
+        });
+
+
+        $('#my_table').DataTable();
         var noofanchors = document.getElementById("mktdropdown").getElementsByTagName("a");
         for (var i = 0; i < noofanchors.length; i++) {
             $("#target" + i).click(function () {
                 var value = $(this).data("custom-value");
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    }
-                });
                 $.ajax({
                     method: 'POST',
                     url: '{{url("/setsession/setActive")}}',

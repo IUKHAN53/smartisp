@@ -12,12 +12,16 @@ use Illuminate\Http\Request;
 class TicketController extends Controller
 {
 
-    public function index( Request $request)
+    public function index(Request $request)
     {
         $data = Ticket::with('assigned_to')->with('ticket_by')->with('ticket_category');
-        if(isset($request->type)){
-            $cat = TicketCategory::whereName('s')->first()->id;
-            $data = $data->where('ticket_category_id',$cat);
+        if (isset($request->type)) {
+            if ($request->type == 'new-connection') {
+                $cat = TicketCategory::whereName('New Connection Request')->first()->id;
+                if (!$cat)
+                    toastr()->info("No Such category present please create a category named New Connection Request");
+                $data = $data->where('ticket_category_id', $cat);
+            }
         }
         $data = $data->get();
         foreach ($data as $ticket) {
@@ -53,7 +57,7 @@ class TicketController extends Controller
     {
         $request->validate(['title' => 'required|string']);
         $cat = TicketCategory::create(['name' => $request->title]);
-        ($cat)?toastr()->success('Added Category Successfully', 'Success') : toastr()->error('Failed to add Category', 'Failed');
+        ($cat) ? toastr()->success('Added Category Successfully', 'Success') : toastr()->error('Failed to add Category', 'Failed');
         return redirect(route('ticket-category'));
     }
 
@@ -88,16 +92,33 @@ class TicketController extends Controller
 
     public function edit(Ticket $ticket)
     {
-        //
+        $data['franchise'] = Franchise::all();
+
+        return view('crm.edit')
+            ->with('ticket', $ticket)
+            ->with('categories', TicketCategory::all())
+            ->with('users', User::all())
+            ->with('franchises', Franchise::all());
     }
 
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $request->validate([
+            'category' => 'required',
+            'franchise' => 'required',
+            'title' => 'required|string',
+            'priority' => 'required',
+            'content' => 'required|string',
+            'assign_to' => 'required'
+        ]);
+        $ticket->update($request);
+        toastr()->success('Added Ticket Successfully', 'Success');
+        return redirect(route('ticket.index'));
     }
 
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+        ob_clean();
     }
 }
