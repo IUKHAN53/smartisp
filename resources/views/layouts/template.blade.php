@@ -140,6 +140,7 @@
                                aria-expanded="false"><i class="fas fa-ticket-alt"></i><span class="hide-menu">HRM</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{route('employee.index')}}">Manage Employees</a></li>
+                                <li><a href="{{route('salary.index')}}">Manage Salaries</a></li>
                                 <li><a href="{{route('leave.index')}}">Manage Leave</a></li>
                                 <li><a href="{{route('position.index')}}">Manage Positions</a></li>
                             </ul>

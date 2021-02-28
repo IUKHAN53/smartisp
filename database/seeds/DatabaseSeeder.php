@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             LeaveSeeder::class,
             EmployeeSeeder::class,
             EmployeeLeaveSeeder::class,
+            SalarySeeder::class,
         ]);
     }
 }
