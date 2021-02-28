@@ -121,7 +121,8 @@
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                               aria-expanded="false"><i class="ti ti-money"></i><span class="hide-menu">Billing</span></a>
+                               aria-expanded="false"><i class="ti ti-money"></i><span
+                                    class="hide-menu">Billing</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('/billing')}}">View Billings</a></li>
                             </ul>
@@ -138,8 +139,9 @@
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                aria-expanded="false"><i class="fas fa-ticket-alt"></i><span class="hide-menu">HRM</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('/ticket')}}">Ticket List</a></li>
-                                <li><a href="{{url('/ticket-category')}}">Type List</a></li>
+                                <li><a href="{{route('employee.index')}}">Manage Employees</a></li>
+                                <li><a href="{{route('leave.index')}}">Manage Leave</a></li>
+                                <li><a href="{{route('position.index')}}">Manage Positions</a></li>
                             </ul>
                         </li>
                         <li>
@@ -249,36 +251,37 @@
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="{{url('/product')}}">Product</a></li>
                                     <li><a href="{{url('/productcategory')}}">Category</a></li>
-                                    <li><a href="{{url('/productvendor')}}">Vendor</a></li>'}}
+                                    <li><a href="{{url('/productvendor')}}">Vendor</a></li>
+                                    '}}
                                     <li><a href="{{url('/productbrand')}}">Brands</a></li>
                                     <li><a href="{{url('/productunit')}}">Units</a></li>
                                     <li><a href="{{url('/purchase')}}">Purchase Product</a></li>
                                 </ul>
-{{--                                <a href="javascript:void(0)"--}}
-{{--                                   class="hide-menu" aria-expanded="false">Requisition</a>--}}
-{{--                                <ul aria-expanded="false" class="collapse">--}}
-{{--                                    <li><a href=#>Add</a></li>--}}
-{{--                                    <li><a href="#">Approve</a></li>--}}
-{{--                                </ul>--}}
-{{--                                <a href="javascript:void(0)"--}}
-{{--                                   class="hide-menu" aria-expanded="false">Purchase</a>--}}
-{{--                                <ul aria-expanded="false" class="collapse">--}}
-{{--                                    <li><a href="{{url'/purchase">Purchase Product</a></li>--}}
-{{--                                </ul>--}}
-{{--                                <a href="javascript:void(0)"--}}
-{{--                                   class="hide-menu" aria-expanded="false">Sales</a>--}}
-{{--                                <ul aria-expanded="false" class="collapse">--}}
-{{--                                    <li><a href=#>Add Customer Data</a></li>--}}
-{{--                                    <li><a href="#">Sales Invoice</a></li>--}}
-{{--                                    <li><a href="#">Approve Invoice</a></li>--}}
-{{--                                    <li><a href="#">Return Product</a></li>--}}
-{{--                                </ul>--}}
-{{--                                <a href="javascript:void(0)"--}}
-{{--                                   class="hide-menu" aria-expanded="false">Reports</a>--}}
-{{--                                <ul aria-expanded="false" class="collapse">--}}
-{{--                                    <li><a href=#>Product List</a></li>--}}
-{{--                                    <li><a href="#">Product Ledger</a></li>--}}
-{{--                                </ul>--}}
+                                {{--                                <a href="javascript:void(0)"--}}
+                                {{--                                   class="hide-menu" aria-expanded="false">Requisition</a>--}}
+                                {{--                                <ul aria-expanded="false" class="collapse">--}}
+                                {{--                                    <li><a href=#>Add</a></li>--}}
+                                {{--                                    <li><a href="#">Approve</a></li>--}}
+                                {{--                                </ul>--}}
+                                {{--                                <a href="javascript:void(0)"--}}
+                                {{--                                   class="hide-menu" aria-expanded="false">Purchase</a>--}}
+                                {{--                                <ul aria-expanded="false" class="collapse">--}}
+                                {{--                                    <li><a href="{{url'/purchase">Purchase Product</a></li>--}}
+                                {{--                                </ul>--}}
+                                {{--                                <a href="javascript:void(0)"--}}
+                                {{--                                   class="hide-menu" aria-expanded="false">Sales</a>--}}
+                                {{--                                <ul aria-expanded="false" class="collapse">--}}
+                                {{--                                    <li><a href=#>Add Customer Data</a></li>--}}
+                                {{--                                    <li><a href="#">Sales Invoice</a></li>--}}
+                                {{--                                    <li><a href="#">Approve Invoice</a></li>--}}
+                                {{--                                    <li><a href="#">Return Product</a></li>--}}
+                                {{--                                </ul>--}}
+                                {{--                                <a href="javascript:void(0)"--}}
+                                {{--                                   class="hide-menu" aria-expanded="false">Reports</a>--}}
+                                {{--                                <ul aria-expanded="false" class="collapse">--}}
+                                {{--                                    <li><a href=#>Product List</a></li>--}}
+                                {{--                                    <li><a href="#">Product Ledger</a></li>--}}
+                                {{--                                </ul>--}}
                             </ul>
                         </li>
                         <li>
@@ -490,7 +493,7 @@
                     success: function (response) {
                         location.reload();
                     },
-                    error: function (){
+                    error: function () {
                         Swal.fire('Arghhhhh!',
                             response,
                             'An Error Occurred')

@@ -82,6 +82,14 @@ Route::get('/ticket-category/create', 'TicketController@category_create')->name(
 Route::post('/ticket-category/store', 'TicketController@category_store')->name('ticket-category.store');
 Route::delete('/ticket-category/{ticketCategory}', 'TicketController@category_destroy')->name('ticket-category.delete');
 
+//HRM
+Route::resource('position', 'PositionController');
+Route::resource('employee', 'EmployeeController');
+Route::resource('leave', 'LeaveController');
+Route::resource('employee-leave', 'EmployeeLeaveController');
+
+
+
 
 Route::get('/run-migrations',function (){
     Artisan::call('migrate --seed', array('--path' => 'app/migrations'));

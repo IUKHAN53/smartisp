@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            UserSeeder::class,
+            RoleSeeder::class,
             PermissionTableSeeder::class,
             CreateAdminUserSeeder::class,
             MikrotikSeeder::class,
@@ -31,6 +33,10 @@ class DatabaseSeeder extends Seeder
             FranchiseSeeder::class,
             TicketSeeder::class,
             TicketLogSeeder::class,
+            PositionSeeder::class,
+            LeaveSeeder::class,
+            EmployeeSeeder::class,
+            EmployeeLeaveSeeder::class,
         ]);
     }
 }
