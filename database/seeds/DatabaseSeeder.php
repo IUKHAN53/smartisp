@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             EmployeeLeaveSeeder::class,
             SalarySeeder::class,
+            DepartmentSeeder::class,
         ]);
     }
 }

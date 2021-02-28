@@ -84,6 +84,7 @@ Route::delete('/ticket-category/{ticketCategory}', 'TicketController@category_de
 
 //HRM
 Route::resource('position', 'PositionController');
+Route::resource('department', 'DepartmentController');
 Route::resource('employee', 'EmployeeController');
 Route::resource('salary', 'SalaryController');
 Route::resource('leave', 'LeaveController');
