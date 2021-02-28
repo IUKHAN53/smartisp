@@ -21,8 +21,7 @@
                 <thead>
                 <tr>
                     <th>Employee</th>
-                    <th>From</th>
-                    <th>To</th>
+                    <th>Salary Year-Month</th>
                     <th>Salary</th>
                     <th>Status</th>
                     <th width="280px">Action</th>
@@ -32,8 +31,7 @@
                 @foreach ($salaries as $salary)
                     <tr>
                         <td>{{$salary->employee->user->name}}</td>
-                        <td>{{$salary->from}}</td>
-                        <td>{{$salary->to}}</td>
+                        <td>{{$salary->salary_for}}</td>
                         <td>{{$salary->salary}}</td>
                         <td>{{$salary->status}}</td>
                         <td>
@@ -53,14 +51,14 @@
     <script>
         function deleteTicket(id) {
             let url;
-            if (confirm('Are you sure to delete this Employee ?')) {
-                url = '{{url('employee').'/employee_id'}}';
-                url = url.replace('employee_id', id);
+            if (confirm('Are you sure to delete this Salary ?')) {
+                url = '{{url('salary').'/salary_id'}}';
+                url = url.replace('salary_id', id);
                 $.ajax({
                     url: url,
                     type: 'DELETE',
                     success: function () {
-                        toastr.success('Deleted Employee Successfully');
+                        toastr.success('Deleted Salary Successfully');
                         location.reload();
                     },
                     error: function () {

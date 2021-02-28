@@ -43,24 +43,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="from">Salary From</label>
-                                    <input type="date" class="form-control"
-                                           id="from" name="from">
-                                    @error('from')
+                                    <label for="salary_for">Salary Month</label>
+                                    <input type="month" class="form-control"
+                                           id="salary_for" name="salary_for">
+                                    @error('salary_for')
                                     <div class="text-danger">{{$message}}</div>@enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="to">Salary To</label>
-                                    <input type="date" class="form-control" id="to"
-                                           name="to">
-                                    @error('to')
-                                    <div class="text-danger">{{$message}}</div>@enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="status">Status</label>

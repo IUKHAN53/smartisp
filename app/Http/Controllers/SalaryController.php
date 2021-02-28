@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 class SalaryController extends Controller
 {
 
+    private $salary_rules = [
+        'employee_id' => 'required',
+        'salary' => 'required|numeric',
+        'salary_for' => 'required',
+        'status' => 'required',
+    ];
+
     public function index()
     {
         return view('hrm.salary.index')->with([
-           'salaries' => Salary::with('employee')->get()
+            'salaries' => Salary::with('employee')->get()
         ]);
     }
 
@@ -26,47 +33,40 @@ class SalaryController extends Controller
 
     public function store(Request $request)
     {
-        $new_salary = $request->validate([
-
-        ]);
-
+        $new_salary = $request->validate($this->salary_rules);
+        if (Salary::create($new_salary)) {
+            toastr()->success('Salary Added Successfully!');
+            return redirect(route('salary.index'));
+        } else {
+            toastr()->error('Something Went wrong Please try later');
+            return redirect()->back();
+        }
     }
+
     public function show(Salary $salary)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Salary $salary)
     {
-        //
+        return view('hrm.salary.edit', ['salary' => $salary, 'employees' => Employee::all()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Salary $salary)
     {
-        //
+        $new_salary = $request->validate($this->salary_rules);
+        if ($salary->update($new_salary)) {
+            toastr()->success('Salary Updated Successfully!');
+            return redirect(route('salary.index'));
+        } else {
+            toastr()->error('Something Went wrong Please try later');
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Salary $salary)
     {
-        //
+        $salary->delete();
     }
 }

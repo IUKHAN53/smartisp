@@ -14,10 +14,10 @@ class SalarySeeder extends Seeder
 
     public function run()
     {
-        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'from' =>'2021-08-24','to'=>'2021-09-24', 'status'=>'pending'] );
-        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'from' =>'2021-03-24','to'=>'2021-02-24', 'status'=>'paid'] );
-        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'from' =>'2021-02-24','to'=>'2021-03-24', 'status'=>'unpaid'] );
-        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'from' =>'2021-02-24','to'=>'2021-03-24', 'status'=>'paid'] );
-        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'from' =>'2021-03-24','to'=>'2021-02-24', 'status'=>'unpaid'] );
+        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'salary_for' =>'2021-07', 'status'=>'pending'] );
+        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'salary_for' =>'2021-07', 'status'=>'paid'] );
+        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'salary_for' =>'2021-07', 'status'=>'unpaid'] );
+        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'salary_for' =>'2021-07', 'status'=>'paid'] );
+        Salary::create(['employee_id' =>Employee::inRandomOrder()->first()->id, 'salary' => rand(15000,80000), 'salary_for' =>'2021-07', 'status'=>'unpaid'] );
     }
 }

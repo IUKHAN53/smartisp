@@ -16,8 +16,7 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->integer('salary');
-            $table->date('from');
-            $table->date('to');
+            $table->string('salary_for');
             $table->enum('status',['paid','unpaid','pending']);
             $table->foreignId('employee_id')->references('id')->on('employees')->cascadeOnDelete();
             $table->timestamps();
