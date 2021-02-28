@@ -2,48 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Salary;
 use Illuminate\Http\Request;
 
 class SalaryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return view('hrm.salary.index')->with([
+           'salaries' => Salary::with('employee')->get()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('hrm.salary.create')->with([
+            'employees' => Employee::with('user')->get()
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $new_salary = $request->validate([
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
+        ]);
+
+    }
     public function show(Salary $salary)
     {
         //
