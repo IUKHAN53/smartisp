@@ -2,84 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
+use App\EmployeeLeave;
 use App\Leave;
 use Illuminate\Http\Request;
 
 class LeaveController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('hrm.leave.index')->with([
+            'leaves' => EmployeeLeave::all()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('hrm.leave.create')->with([
+            'employees' => Employee::all()
+        ]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $leave = $request->validate([
+            'employee_id' => 'required',
+            'description' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+        ]);
+        if(EmployeeLeave::create($leave)){
+            toastr()->success('Leave added Successfully!');
+            return redirect(route('leave.index'));
+        }else{
+            toastr()->error('Something Went wrong Please try later');
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Leave  $leave
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Leave $leave)
+
+    public function show($leave)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Leave  $leave
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Leave $leave)
+    public function edit($leave)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Leave  $leave
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Leave $leave)
+    public function update(Request $request, $leave)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Leave  $leave
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Leave $leave)
+    public function destroy($leave)
     {
-        //
+        $leave = EmployeeLeave::find($leave);
+        $leave->delete();
     }
 }

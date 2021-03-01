@@ -7,74 +7,42 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left">
-                            <h2>Add New ticket</h2>
-                        </div>
-                        <div class="pull-right">
-                            <a class="btn btn-primary" href="{{ route('ticket.index') }}">Back</a>
+                            <h2>Add Leave for employee</h2>
                         </div>
                     </div>
                 </div>
-                <form action="{{route('ticket.store')}}" id="user_form" method="POST" class="mt-4">
+                <form action="{{route('leave.store')}}" id="user_form" method="POST" class="mt-4">
                     @csrf
                     <div class="form-group">
-                        <select class="custom-select form-control " id="category"
-                                name="category" >
-                            <option value="">Ticket Category</option>
-                            @foreach($data['category'] as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                        <label for="employee_id">Employee Name:</label>
+                        <select class="custom-select form-control " id="employee_id"
+                                                                 name="employee_id" >
+                            <option value="">Select Employee</option>
+                            @foreach($employees as $employee)
+                                <option value="{{$employee->id}}">{{$employee->user->name}}</option>
                             @endforeach
                         </select>
-                        @error('category')
+                        @error('employee_id')
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
                     <div class="form-group">
-                        <select class="custom-select form-control " id="franchise"
-                                name="franchise" >
-                            <option value="">Franchise</option>
-                            @foreach($data['franchise'] as $franchise)
-                                <option value="{{$franchise->id}}">{{$franchise->franchisename}}</option>
-                            @endforeach
-                        </select>
-                        @error('franchise')
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               placeholder="Enter Type of leave">
+                        @error('description')
                         <div class="text-danger">{{$message}}</div>@enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title" name="title"
-                               placeholder="Enter Title" >
-                        @error('title')
+                        <label for="start">Start Date:</label>
+                        <input type="date" class="form-control" id="start" name="start">
+                        @error('start')
                         <div class="text-danger">{{$message}}</div>@enderror
-
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="content" name="content"
-                               placeholder="Enter Content" >
-                        @error('content')
+                        <label for="end">End Date:</label>
+                        <input type="date" class="form-control" id="end" name="end">
+                        @error('end')
                         <div class="text-danger">{{$message}}</div>@enderror
-
-                    </div>
-                    <div class="form-group">
-                        <select class="custom-select form-control " id="priority"
-                                name="priority" >
-                            <option value="">Priority</option>
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                        @error('priority')
-                        <div class="text-danger">{{$message}}</div>@enderror
-
-                    </div>
-                    <div class="form-group">
-                        <select class="custom-select form-control " id="assign_to"
-                                name="assign_to" >
-                            <option value="">Assign Ticket To</option>
-                            @foreach($data['users'] as $user)
-                                <option value="{{$user->id}}">{{$user->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('assign_to')
-                        <div class="text-danger">{{$message}}</div>@enderror
-
                     </div>
 
                     <input type="submit" class="btn btn-primary" value="Add"/>

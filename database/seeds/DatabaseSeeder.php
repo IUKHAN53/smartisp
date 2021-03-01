@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
             TicketSeeder::class,
             TicketLogSeeder::class,
             PositionSeeder::class,
-            LeaveSeeder::class,
             EmployeeSeeder::class,
             EmployeeLeaveSeeder::class,
             SalarySeeder::class,
