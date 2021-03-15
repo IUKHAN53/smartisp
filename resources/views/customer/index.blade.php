@@ -11,15 +11,15 @@
                 <table class="table color-bordered-table dark-bordered-table" id="customers_table">
                     <thead>
                     <tr>
-                        <th>Reference Number <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Name <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Email <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Customer Type <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Mikrotik <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Package <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Zone <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Registration Date <i class="fa fa-fw fa-sort"></i></th>
-                        <th>Status <i class="fa fa-fw fa-sort"></i></th>
+                        <th>Reference Number </th>
+                        <th>Name </th>
+                        <th>Email </th>
+                        <th>Customer Type </th>
+                        <th>Mikrotik </th>
+                        <th>Package </th>
+                        <th>Zone </th>
+                        <th>Registration Date </th>
+                        <th>Status </th>
                     </tr>
                     </thead>
                 </table>

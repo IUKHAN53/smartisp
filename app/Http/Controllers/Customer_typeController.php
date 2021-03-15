@@ -8,10 +8,7 @@ use Illuminate\View\View;
 
 class Customer_typeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
@@ -36,30 +33,26 @@ class Customer_typeController extends Controller
 
     public function show($id)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($customer_type)
     {
-        //
+
+        return view('customer.edittype')->with('type',Customer_type::findOrFail($customer_type));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'type' => 'required',
+            'details' => 'required|max:255',
+        ]);
+        $cusomer_type = Customer_type::findOrFail($id);
+        $cusomer_type->type = $validatedData['type'];
+        $cusomer_type->details = $validatedData['details'];
+        $cusomer_type->save();
+        return redirect('customertype')->with('success','New type added succesfully');
     }
 
     public function destroy($id)

@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Hotspot;
 use Illuminate\Http\Request;
 
-class HotspotController extends Controller
+class DistrictController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $hotspots = Hotspot::all();
-        return view('hotspot.index')->with('hotspots',$hotspots);
+        //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('hotspot.create');
+        //
     }
 
     /**
@@ -33,10 +40,10 @@ class HotspotController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Hotspot  $hotspot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotspot $hotspot)
+    public function show($id)
     {
         //
     }
@@ -44,10 +51,10 @@ class HotspotController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Hotspot  $hotspot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hotspot $hotspot)
+    public function edit($id)
     {
         //
     }
@@ -56,10 +63,10 @@ class HotspotController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Hotspot  $hotspot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotspot $hotspot)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -67,10 +74,10 @@ class HotspotController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Hotspot  $hotspot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotspot $hotspot)
+    public function destroy($id)
     {
         //
     }

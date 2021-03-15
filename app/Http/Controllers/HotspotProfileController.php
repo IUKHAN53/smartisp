@@ -14,10 +14,7 @@ use RouterOS\Query;
 
 class HotspotProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     public function index()
     {
         return view('hotspot.profile.index')->with('profiles',HotspotProfile::all());

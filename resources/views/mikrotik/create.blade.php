@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add new Mikrotik</h4>
-                <h6 class="card-subtitle"> Add a new mikrotik for {{Auth::user()->name}} </h6>
+                <h6 class="card-subtitle"> Add a new mikrotik for {{auth()->user()->name}} </h6>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -41,7 +41,7 @@
                         <span style="color: red;">*</span><label for="exampleInputEmail1">Site Name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="sitename" aria-describedby="emailHelp" placeholder="Enter Site Name">
                     </div>
-                    <div class="form-group">php
+                    <div class="form-group">
                         <span style="color: red;">*</span><label for="exampleInputEmail1">Address</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="address" aria-describedby="emailHelp" placeholder="Enter Address">
                     </div>

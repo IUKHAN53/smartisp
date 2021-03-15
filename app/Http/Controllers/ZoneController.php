@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 class ZoneController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     public function index()
     {
         $zone = Zone::all();

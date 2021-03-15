@@ -14,10 +14,7 @@ use RouterOS\Query;
 
 class QueueController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     public function index()
     {
         $queues = Queue::all();

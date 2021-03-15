@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PackageController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     public function index()
     {
         $mkt = Mikrotik::first();
@@ -23,7 +20,7 @@ class PackageController extends Controller
 
     public function create()
     {
-
+        dd('not done yet');
     }
     public function store(Request $request)
     {

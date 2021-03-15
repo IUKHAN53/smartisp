@@ -17,10 +17,7 @@ use Yoeunes\Toastr\Facades\Toastr;
 
 class BillingController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {

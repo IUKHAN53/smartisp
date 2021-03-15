@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 
 class UpazilaController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {

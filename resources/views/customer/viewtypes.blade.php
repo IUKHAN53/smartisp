@@ -45,7 +45,7 @@
                                     @csrf
                                     @method('DELETE')
                                 </form>
-                                <a class="btn btn-outline-cyan" role="button"href="{{ route('customertype.edit',$type->id)}}" title="" data-toggle="tooltip" data-original-title="Edit Network"><i class="ti-pencil"></i></a>
+                                <a class="btn btn-outline-cyan" role="button"href="{{ route('customertype.edit',$type->id)}}" title="" data-toggle="tooltip" data-original-title="Edit Customer Type"><i class="ti-pencil"></i></a>
                                 <a class="btn btn-outline-danger" role="button" onclick="del()" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
